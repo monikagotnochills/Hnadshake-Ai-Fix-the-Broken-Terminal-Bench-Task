@@ -1,0 +1,85 @@
+{
+    "id": "bb0bbbf6-0675-4b13-b377-2737b2537d4f",
+    "task_name": "dynamo/log-report",
+    "trial_name": "log-report__524JbfC",
+    "trial_uri": "file:///C:/Users/ms331/Downloads/fix-task-broken/log-report/jobs/2026-07-15__14-15-47/log-report__524JbfC",
+    "task_id": {
+        "path": "."
+    },
+    "source": null,
+    "task_checksum": "613a236c05e8a0cfa33a3376a89815611b3befc60b2b1f4e4a3b1073dce2d288",
+    "config": {
+        "task": {
+            "path": ".",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "log-report__524JbfC",
+        "trials_dir": "jobs\\2026-07-15__14-15-47",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "mounts_json": null,
+            "env": {},
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "faef545e-1429-44d5-a649-dbbb5ad3e8fc"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "EnvironmentStartTimeoutError",
+        "exception_message": "Environment start timed out after 600.0 seconds",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\tasks.py\", line 488, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\harbor\\environments\\docker\\docker.py\", line 478, in start\n    await self._run_docker_compose_command([\"build\"])\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\harbor\\environments\\docker\\docker.py\", line 360, in _run_docker_compose_command\n    stdout_bytes, stderr_bytes = await process.communicate()\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\subprocess.py\", line 201, in communicate\n    stdin, stdout, stderr = await tasks.gather(stdin, stdout, stderr)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\subprocess.py\", line 181, in _read_stream\n    output = await stream.read()\n             ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\streams.py\", line 723, in read\n    block = await self.read(self._limit)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\streams.py\", line 730, in read\n    await self._wait_for_data('read')\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\streams.py\", line 539, in _wait_for_data\n    await self._waiter\nasyncio.exceptions.CancelledError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 325, in _start_environment_with_retry\n    await asyncio.wait_for(\n    ...<4 lines>...\n    )\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\tasks.py\", line 487, in wait_for\n    async with timeouts.timeout(timeout):\n               ~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\timeouts.py\", line 114, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 951, in run\n    await self._setup_environment()\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 313, in _setup_environment\n    await self._start_environment_with_retry()\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 193, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 112, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 157, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\_utils.py\", line 111, in inner\n    return call(*args, **kwargs)\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\__init__.py\", line 413, in exc_check\n    raise retry_exc.reraise()\n          ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\__init__.py\", line 184, in reraise\n    raise self.last_attempt.result()\n          ~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\concurrent\\futures\\_base.py\", line 443, in result\n    return self.__get_result()\n           ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\concurrent\\futures\\_base.py\", line 395, in __get_result\n    raise self._exception\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\tenacity\\asyncio\\__init__.py\", line 116, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ms331\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 332, in _start_environment_with_retry\n    raise EnvironmentStartTimeoutError(\n    ...<3 lines>...\n    ) from e\nharbor.trial.trial.EnvironmentStartTimeoutError: Environment start timed out after 600.0 seconds\n",
+        "occurred_at": "2026-07-15T14:35:52.859503"
+    },
+    "started_at": "2026-07-15T08:45:51.125186Z",
+    "finished_at": "2026-07-15T09:05:53.472655Z",
+    "environment_setup": {
+        "started_at": "2026-07-15T08:45:51.635810Z",
+        "finished_at": "2026-07-15T09:05:52.666703Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

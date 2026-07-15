@@ -1,0 +1,155 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 7 items
+
+../tests/test_outputs.py FFFFFFF                                         [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_report_exists ______________________________
+
+    def test_report_exists():
+>       assert REPORTING_PATH.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:60: AssertionError
+_____________________________ test_report_nonempty _____________________________
+
+    def test_report_nonempty():
+        """report.json is not empty."""
+>       assert REPORTING_PATH.stat().st_size > 0, "report.json is empty"
+               ^^^^^^^^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/app/report.json')
+
+    def stat(self, *, follow_symlinks=True):
+        """
+        Return the result of the stat() system call on this path, like
+        os.stat() does.
+        """
+>       return os.stat(self, follow_symlinks=follow_symlinks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/usr/local/lib/python3.11/pathlib.py:1013: FileNotFoundError
+_______________________________ test_valid_json ________________________________
+
+    def test_valid_json():
+        try:
+>           load_report()
+
+/tests/test_outputs.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        # To ensure report.json file exists before reading it
+>       assert REPORTING_PATH.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:53: AssertionError
+
+During handling of the above exception, another exception occurred:
+
+    def test_valid_json():
+        try:
+            load_report()
+        except Exception as e:
+>           assert False, f"Invalid report.json: {e}"
+E           AssertionError: Invalid report.json: report.json not found
+E             assert False
+E              +  where False = exists()
+E              +    where exists = PosixPath('/app/report.json').exists
+E           assert False
+
+/tests/test_outputs.py:72: AssertionError
+_____________________________ test_required_fields _____________________________
+
+    def test_required_fields():
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        # To ensure report.json file exists before reading it
+>       assert REPORTING_PATH.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:53: AssertionError
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        # To ensure report.json file exists before reading it
+>       assert REPORTING_PATH.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:53: AssertionError
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        # To ensure report.json file exists before reading it
+>       assert REPORTING_PATH.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:53: AssertionError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        # To ensure report.json file exists before reading it
+>       assert REPORTING_PATH.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:53: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_report_exists - AssertionError: report....
+FAILED ../tests/test_outputs.py::test_report_nonempty - FileNotFoundError: [E...
+FAILED ../tests/test_outputs.py::test_valid_json - AssertionError: Invalid re...
+FAILED ../tests/test_outputs.py::test_required_fields - AssertionError: repor...
+FAILED ../tests/test_outputs.py::test_total_requests - AssertionError: report...
+FAILED ../tests/test_outputs.py::test_unique_ips - AssertionError: report.jso...
+FAILED ../tests/test_outputs.py::test_top_path - AssertionError: report.json ...
+============================== 7 failed in 0.06s ===============================
